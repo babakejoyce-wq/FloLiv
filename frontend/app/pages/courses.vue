@@ -130,7 +130,7 @@ function affecter(c: any, livreurId: string) {
             <template v-else>{{ c.livreur ? c.livreur.nom + ' ' + c.livreur.prenom : '—' }}</template>
           </td>
           <td>
-            <span class="badge">{{ libelleStatut[c.statut] }}</span>
+            <span class="badge" :class="c.statut">{{ libelleStatut[c.statut] }}</span>
             <div v-if="c.motif_annulation">{{ c.motif_annulation }}</div>
           </td>
           <td class="actions">

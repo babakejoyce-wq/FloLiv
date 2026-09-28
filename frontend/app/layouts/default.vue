@@ -10,7 +10,8 @@ function deconnexion() {
   <div>
     <nav class="barre">
       <span class="titre">FloLiv</span>
-      <NuxtLink to="/">Livreurs</NuxtLink>
+      <NuxtLink to="/">Accueil</NuxtLink>
+      <NuxtLink to="/livreurs">Livreurs</NuxtLink>
       <NuxtLink to="/courses">Courses</NuxtLink>
       <NuxtLink to="/chiffre-affaires">Chiffre d'affaires</NuxtLink>
       <button class="secondaire" @click="deconnexion">Déconnexion</button>

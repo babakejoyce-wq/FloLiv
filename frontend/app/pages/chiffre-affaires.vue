@@ -9,8 +9,9 @@ const livreurId = ref('')
 const resultat = ref<any>(null)
 const erreur = ref('')
 
-const { data: livreurs } = await useAsyncData('ca-livreurs', () => api<any[]>('/livreurs'))
+const { data: livreurs } = useLazyAsyncData('p-ca-livreurs', () => api<any[]>('/livreurs'))
 
+const formatMontant = (n: number | string) => new Intl.NumberFormat('fr-FR').format(Number(n)) + ' FCFA'
 const bornes = () => ({ debut: `${debut.value} 00:00:00`, fin: `${fin.value} 23:59:59` })
 
 async function calculer() {
@@ -59,7 +60,7 @@ async function exporter() {
     </div>
 
     <div v-if="resultat" class="carte">
-      <div class="total">{{ resultat.chiffre_affaires }} FCFA</div>
+      <div class="total">{{ formatMontant(resultat.chiffre_affaires) }}</div>
       <p>{{ resultat.nombre_courses }} course(s) livrée(s) sur la période</p>
     </div>
   </main>

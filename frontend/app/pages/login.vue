@@ -26,13 +26,14 @@ async function seConnecter() {
 </script>
 
 <template>
-  <main>
+  <main class="login">
     <h1>FloLiv</h1>
-    <form @submit.prevent="seConnecter">
+    <p class="sous-titre">Gestion de flotte de livraison</p>
+    <form class="carte" @submit.prevent="seConnecter">
       <input v-model="email" type="email" placeholder="Email" required />
       <input v-model="password" type="password" placeholder="Mot de passe" required />
       <button :disabled="chargement">Se connecter</button>
-      <p v-if="erreur">{{ erreur }}</p>
+      <p v-if="erreur" class="erreur">{{ erreur }}</p>
     </form>
   </main>
 </template>
