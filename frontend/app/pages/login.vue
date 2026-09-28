@@ -30,10 +30,19 @@ async function seConnecter() {
     <h1>FloLiv</h1>
     <p class="sous-titre">Gestion de flotte de livraison</p>
     <form class="carte" @submit.prevent="seConnecter">
-      <input v-model="email" type="email" placeholder="Email" required />
-      <input v-model="password" type="password" placeholder="Mot de passe" required />
-      <button :disabled="chargement">Se connecter</button>
-      <p v-if="erreur" class="erreur">{{ erreur }}</p>
-    </form>
+  <input v-model="email" type="email" placeholder="Email" required />
+  <input v-model="password" type="password" placeholder="Mot de passe" required />
+  <button :disabled="chargement">
+    {{ chargement ? 'Connexion...' : 'Se connecter' }}
+  </button>
+  <p v-if="erreur" class="erreur">{{ erreur }}</p>
+
+  <NuxtLink
+    to="/mot-de-passe-oublie"
+    style="text-align: center; color: var(--doux); font-size: 13px; text-decoration: none; margin-top: 8px;"
+  >
+    Mot de passe oublié ?
+  </NuxtLink>
+</form>
   </main>
 </template>
