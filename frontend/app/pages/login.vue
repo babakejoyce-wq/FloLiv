@@ -1,4 +1,5 @@
 <script setup lang="ts">
+definePageMeta({ layout: false })
 const api = useApi()
 const token = useCookie<string | null>('token')
 const email = ref('')
