@@ -47,4 +47,11 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    /**
+ * Envoie la notification personnalisée de réinitialisation.
+ */
+public function sendPasswordResetNotification($token): void
+{
+    $this->notify(new \App\Notifications\ResetPasswordNotification($token));
+}
 }
